@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<scrpt>
+<script>
   import {ref} from 'vue';
 
   
@@ -23,4 +23,4 @@
       console.log('컴포너트가 마운트 됨')
     }
   }
-</scrpt>
+</script>
