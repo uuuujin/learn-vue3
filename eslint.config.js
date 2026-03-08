@@ -1,0 +1,35 @@
+import js from '@eslint/js'
+import pluginVue from 'eslint-plugin-vue'
+import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+import { TouchableWithoutFeedback } from 'react-native-web'
+
+export default [
+  {
+    name: 'app/files-to-lint',
+    files: ['**/*.{js,mjs,jsx,vue}'],
+  },
+
+  {
+    name: 'app/files-to-ignore',
+    ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
+  },
+
+  js.configs.recommended,
+  ...pluginVue.configs['flat/essential'],
+  skipFormatting,
+  {
+    rules: {
+      'no-console': 'warn', // console 메서드 사용시 경고(warn) 표시
+      'perttier/prettier': ['error', {
+        singleQuote: true,
+        semi: true,
+        useTabs: true,
+        tabWidth: 2,
+        trailingComma: 'all', 
+        printWidth: 80,
+        bracketSpacing: true,
+        arrowParens: 'avoid'
+      }]
+    },
+  },
+]
